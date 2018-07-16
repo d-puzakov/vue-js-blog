@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-  <NavComp></NavComp>
-    <img src="./assets/logo.png">
+  <NavigationPanel></NavigationPanel>
+  <SectionHead></SectionHead>
+  <SectionContent></SectionContent>
+  <SectionFooter></SectionFooter>
     <router-view/>
   </div>
 </template>
 
 <script>
-import NavComp from '@/components/parts/Nav'
+import NavigationPanel from '@/components/parts/NavigationPanel'
+import SectionHead from '@/components/parts/SectionHead'
+import SectionContent from '@/components/parts/SectionContent'
+import SectionFooter from '@/components/parts/SectionFooter'
 export default {
   name: 'App',
   components: {
-    NavComp
+    NavigationPanel,
+    SectionHead,
+    SectionContent,
+    SectionFooter
+  },
+  created () {
+    let bootstrapScript = document.createElement('script')
+    bootstrapScript.setAttribute('src', '/static/js/bootstrap.js')
+    document.head.appendChild(bootstrapScript)
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
