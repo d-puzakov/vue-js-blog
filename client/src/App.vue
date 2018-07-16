@@ -1,13 +1,18 @@
 <template>
   <div id="app">
+  <NavComp></NavComp>
     <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import NavComp from '@/components/parts/Nav'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    NavComp
+  }
 }
 </script>
 

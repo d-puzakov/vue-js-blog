@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var Post = require('../models/post-model')
 
-router.post('/posts', (req, res) => {
+router.post('/', (req, res) => {
     const post = new Post({
       title: req.body.title,
       description: req.body.description
@@ -19,7 +19,7 @@ router.post('/posts', (req, res) => {
     })
   })
 
-  router.get('/posts', (req, res) => {
+  router.get('/', (req, res) => {
     Post.find({}, 'title description', (err, posts) => {
       if (err) {
         res.sendStatus(500)

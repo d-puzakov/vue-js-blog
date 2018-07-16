@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 var butter = require('buttercms')('d4b9e81e5bd894cb24d7036a99de1c055cf867d9')
 var mongoose = require('mongoose')
 var config = require('./config/config')
+var cors = require('cors')
 mongoose.Promise = global.Promise
 
 const app = express()
@@ -11,7 +12,9 @@ var posts = require('./routes/posts')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cors())
 app.use('/posts', posts)
+
 
 mongoose.connect(config.dbURL, config.dbOptions)
 mongoose.connection
